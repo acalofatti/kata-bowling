@@ -11,7 +11,6 @@ class Game {
 
     var frames: ArrayList<Frame> = ArrayList()
     var rolls : ArrayList<Int> = ArrayList()
-    var score : Int = 0
 
     fun roll(pins : Int){
         if(rolls.size <= 21){
@@ -22,6 +21,7 @@ class Game {
     }
     fun score() : Int {
         var index = 0
+        var score = 0
         frames = functionLoadedFrameService.createFrames(rolls)
 
         for(frame in frames){
