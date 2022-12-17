@@ -2,14 +2,15 @@ package service
 
 import persistence.LoadedScore
 import persistence.LoadedScoreImpl
-import model.Frame
 
 class FunctionLoadedScoreService {
 
     private var loadedScore : LoadedScore = LoadedScoreImpl()
+    private val functionLoadedFrameService = FunctionLoadedFrameService()
 
-    fun score(frames: ArrayList<Frame>, indexFrame: Int) : Int{
-        return loadedScore.calculateScore(frames, indexFrame)
+    fun score(rolls : ArrayList<Int>) : Int{
+        var frames = functionLoadedFrameService.createFrames(rolls)
+        return loadedScore.calculateScore(frames)
     }
 }
 
