@@ -20,19 +20,6 @@ class GameTest {
     }
 
     @Test
-    fun `give a game when score is called then frames size is one`(){
-        val game = Game()
-
-        game.roll(1)
-        game.roll(2)
-        game.score()
-
-        val framesSize = game.frames.size
-
-        assertEquals(1, framesSize)
-    }
-
-    @Test
     fun `give two when score is called then validating should throw AmountPinsIsInvalidException()`() {
         val game = Game()
         game.roll(14)

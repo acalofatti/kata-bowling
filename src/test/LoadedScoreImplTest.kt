@@ -45,9 +45,9 @@ class LoadedScoreImplTest {
         frames.add(frame)
 
 
-        var score = loadedScoreImpl.calculateScore(frames, 0)
+        var score = loadedScoreImpl.calculateScore(frames)
 
-        assertEquals(13, score)
+        assertEquals(16, score)
     }
 
     @Test
@@ -63,9 +63,9 @@ class LoadedScoreImplTest {
         frames.add(frame)
 
 
-        var score = loadedScoreImpl.calculateScore(frames, 0)
+        var score = loadedScoreImpl.calculateScore(frames)
 
-        assertEquals(11, score)
+        assertEquals(14, score)
     }
 
     @Test
@@ -77,8 +77,7 @@ class LoadedScoreImplTest {
         frame.roll2 = 2
         frames.add(frame)
 
-
-        var score = loadedScoreImpl.calculateScore(frames, 0)
+        var score = loadedScoreImpl.calculateScore(frames)
 
         assertEquals(3, score)
     }

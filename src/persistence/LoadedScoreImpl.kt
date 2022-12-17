@@ -13,14 +13,21 @@ class LoadedScoreImpl : LoadedScore {
         return (totalScore == 10)
     }
 
-    override fun calculateScore(frames: ArrayList<Frame>, indexFrame: Int): Int {
+    override fun calculateScore(frames: ArrayList<Frame>): Int {
         var score = 0
-        if(isStrike(frames[indexFrame])) {
-            score += 10 + frames[indexFrame + 1].roll1 + frames[indexFrame + 1].roll2
-        } else if (isSpare(frames[indexFrame])){
-            score += 10 + frames[indexFrame + 1].roll1
-        } else {
-            score += frames[indexFrame].roll1 + frames[indexFrame].roll2
+        var indexFrame = 0
+
+        for(frame in frames) {
+            if (isStrike(frames[indexFrame])) {
+                score += 10 + frames[indexFrame + 1].roll1 + frames[indexFrame + 1].roll2
+                indexFrame +=1
+            } else if (isSpare(frames[indexFrame])) {
+                score += 10 + frames[indexFrame + 1].roll1
+                indexFrame +=1
+            } else {
+                score += frames[indexFrame].roll1 + frames[indexFrame].roll2
+                indexFrame +=1
+            }
         }
         return score
     }
